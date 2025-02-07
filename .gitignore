@@ -172,3 +172,4 @@ cython_debug/
 
 # 'data' folder to avoid pushing pictures onto github
 /data/
+gitlog.txt
