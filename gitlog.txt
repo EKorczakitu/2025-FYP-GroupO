@@ -1,0 +1,104 @@
+commit 0c2f23547068e0c7fd0cc3dc3e32accb9b2620c4
+Merge: 28fd982 7cb5b5a
+Author: Malene Kirkebjerg <mcki@itu.dk>
+Date:   Wed Feb 5 11:57:01 2025 +0100
+
+    Added username and Real-name to members.md
+
+commit 7cb5b5a3dd29e2dddb16c574628870092d843157
+Author: anggiiiikka <angg@itu.dk>
+Date:   Wed Feb 5 11:44:05 2025 +0100
+
+    Added username and real-name to members.md
+
+commit 28fd9825a79170c948ca994c1fa1c8106313fdc7
+Author: Malene Kirkebjerg <mcki@itu.dk>
+Date:   Wed Feb 5 11:42:53 2025 +0100
+
+    Added username and real-name to members.md
+
+commit c24179a49aee3121c6e6a5631078d795a624cbb4
+Author: brute-yanka <130507745+brute-yanka@users.noreply.github.com>
+Date:   Wed Feb 5 11:39:01 2025 +0100
+
+    Made members.md fancier
+
+commit 63028aae0fab853f8dd4d490bf8fb7d48e5c3c65
+Author: flora <flora.foldesi3@gmail.com>
+Date:   Wed Feb 5 11:37:34 2025 +0100
+
+    Added username and real-name to members.md
+
+commit fd69fda26f952ae96475438335a00f684972d05a
+Author: EKorczakitu <ekor@itu.dk>
+Date:   Wed Feb 5 11:11:56 2025 +0100
+
+    Added my username and real-name to members.md
+
+commit 1a8f14b945ac9b7b3e5b49bc4eca8b5ca61e328e
+Author: Péter Ónadi <peon@itu.dk>
+Date:   Wed Feb 5 11:08:12 2025 +0100
+
+    Added username and real-name to members.md
+
+commit e97f911cbf3cb78e3dad59effff464e02928ff23
+Author: EKorczakitu <ekor@itu.dk>
+Date:   Wed Feb 5 10:53:44 2025 +0100
+
+    Create members.md
+    
+    Created members.md
+
+commit b1d656e48f5293f21a066bf3366e9eef07d26632
+Author: Veronika Cheplygina <10584818+vcheplygina@users.noreply.github.com>
+Date:   Wed Jan 29 13:31:08 2025 +0100
+
+    Update some Github instructions
+
+commit 7749689fdc5c39602d86db6ad8f8728f601a4828
+Author: YC.L <33020697+YCL92@users.noreply.github.com>
+Date:   Wed Jan 29 09:56:32 2025 +0100
+
+    Add files via upload
+
+commit c430ed2fa4a5fa71c6bbf4eeba4d92b30b94c412
+Author: Yucheng Lu <yucl@itu.dk>
+Date:   Tue Jan 28 17:21:07 2025 +0100
+
+    Update README.md
+
+commit 8ca06ec21cba2678f77b1ef95b04231e992eb5a0
+Author: Yucheng Lu <yucl@itu.dk>
+Date:   Tue Jan 28 17:13:57 2025 +0100
+
+    Updated csv headings
+
+commit 415845ae3ccb7414f42798b99839f22e1431d89e
+Author: Yucheng Lu <yucl@itu.dk>
+Date:   Tue Jan 28 14:38:56 2025 +0100
+
+    Update README.md
+
+commit 2f1e9c9e46944dab4f2bd7bc0a73fd95758faf68
+Author: Yucheng Lu <yucl@itu.dk>
+Date:   Tue Jan 28 14:17:55 2025 +0100
+
+    Update templates and data
+
+commit 388d085ff52f70d6ece31fb7612f68351d8a4022
+Author: Yucheng Lu <yucl@itu.dk>
+Date:   Mon Jan 27 15:49:28 2025 +0100
+
+    Delete preprocess-data.py
+
+commit 00c261b831babfa6085c6c026e78a2ec671c1492
+Author: Yucheng Lu <yucl@itu.dk>
+Date:   Mon Jan 27 15:47:57 2025 +0100
+
+    Initial submit
+
+commit 9a6b1ffbc292e51ad83740ac3d29004a677c0a28
+Author: YC.L <33020697+YCL92@users.noreply.github.com>
+Date:   Wed Jan 22 11:17:54 2025 +0100
+
+    Initial commit
