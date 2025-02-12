@@ -1,49 +1,42 @@
-from os.path import join
-
-import matplotlib.pyplot as plt
-
-from util.img_util import readImageFile, saveImageFile
+from util.libraries import os, cv2, plt, pd
+from util.libraries import cv2
+from util.img_util import readImageFile, saveImageFile, ImageDataLoader
 from util.inpaint_util import removeHair
 
-file_path = './data/example.jpg'
+data_dir = './data'
 save_dir = './result'
+csv_path = './data-student.csv'
+group_id = 'O'
 
-# read an image file
-img_rgb, img_gray = readImageFile(file_path)
+# read CSV file to get the image data
+df = pd.read_csv(csv_path, delimiter=';')
 
-# apply hair removal
-blackhat, thresh, img_out = removeHair(img_rgb, img_gray, kernel_size=5, threshold=10)
+# filtering data according to group_id
+image_paths = df[df['Group_ID'] == group_id]['File_ID'].head(15).values
 
-# plot the images
-plt.figure(figsize=(15, 10))
+resize = lambda img: cv2.resize(img, (256, 256))
+image_loader = ImageDataLoader(image_paths=image_paths, directory=data_dir, transform=None)
 
-# original image
-plt.subplot(2, 2, 1)
-plt.imshow(img_rgb)
-plt.title("Original Image")
-plt.axis("off")
+for file_name, img_rgb, img_gray in image_loader:
+    # apply hair removal
+    blackhat, thresh, img_out = removeHair(img_rgb, img_gray)
 
-# blackHat image
-plt.subplot(2, 2, 2)
-plt.imshow(blackhat, cmap="gray")
-plt.title("BlackHat Image")
-plt.axis("off")
+    # Plotting
+    fig, axes = plt.subplots(2, 2, figsize=(10, 8))
 
-# thresholded mask
-plt.subplot(2, 2, 3)
-plt.imshow(thresh, cmap="gray")
-plt.title("Thresholded Mask")
-plt.axis("off")
+    # List of images and titles
+    images = [img_rgb, blackhat, thresh, img_out]
+    titles = ["Original Image", "BlackHat Image", "Thresholded Mask", "Inpainted Image"]
+    
+    for idx, (image, title) in enumerate(zip(images, titles)):
+        ax = axes[idx // 2, idx % 2]
+        ax.imshow(image, cmap="gray" if title != "Original Image" else None)
+        ax.set_title(title)
+        ax.axis("off")
+    
+    # adjust layout and show plot
+    plt.tight_layout()
+    plt.show()
 
-# inpainted image
-plt.subplot(2, 2, 4)
-plt.imshow(img_out)
-plt.title("Inpainted Image")
-plt.axis("off")
-
-plt.tight_layout()
-plt.show()
-
-# save the output image
-save_file_path = join(save_dir, 'output.jpg')
-saveImageFile(img_out, save_file_path)
+    # save the processed image
+    saveImageFile(img_out, os.path.join(save_dir, f"processed_{file_name}"))
