@@ -1,4 +1,4 @@
-from util.libraries import cv2
+from util import cv2
 
 def removeHair(img_org, img_gray, kernel_size=25, threshold=10, radius=4):
     """

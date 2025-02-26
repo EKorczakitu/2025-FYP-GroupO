@@ -1,4 +1,4 @@
-from util.libraries import cv2, os, random
+from util import cv2, os, random
 
 def readImageFile(file_path):
     """

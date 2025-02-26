@@ -1,5 +1,4 @@
-from util.libraries import os, cv2, plt, pd
-from util.libraries import cv2
+from util import os, cv2, plt, pd
 from util.img_util import readImageFile, saveImageFile, ImageDataLoader
 from util.inpaint_util import removeHair
 
@@ -9,34 +8,25 @@ csv_path = './data-student.csv'
 group_id = 'O'
 
 # read CSV file to get the image data
-df = pd.read_csv(csv_path, delimiter=';')
+df = pd.read_csv(csv_path, delimiter=',')
 
 # filtering data according to group_id
-image_paths = df[df['Group_ID'] == group_id]['File_ID'].head(15).values
+image_paths = df[df['Group_ID'] == group_id]['File_ID'].values
 
-resize = lambda img: cv2.resize(img, (256, 256))
-image_loader = ImageDataLoader(image_paths=image_paths, directory=data_dir, transform=None)
+# create the dataloader class and use it for iteration
+for file_name, img_rgb, img_gray in ImageDataLoader(image_paths=image_paths, directory=data_dir, transform=None):
+    # create a folder for each file_name inside save_dir
+    image_save_dir = os.path.join(save_dir, file_name[:-4])
+    if not os.path.exists(image_save_dir):
+        os.makedirs(image_save_dir)
 
-for file_name, img_rgb, img_gray in image_loader:
     # apply hair removal
     blackhat, thresh, img_out = removeHair(img_rgb, img_gray)
 
-    # Plotting
-    fig, axes = plt.subplots(2, 2, figsize=(10, 8))
+    # list of images and titles
+    images = [img_rgb, img_gray, blackhat, thresh, img_out]
+    titles = ["Original Image", "Grayscale Image", "BlackHat Image", "Thresholded Mask", "Inpainted Image"]
 
-    # List of images and titles
-    images = [img_rgb, blackhat, thresh, img_out]
-    titles = ["Original Image", "BlackHat Image", "Thresholded Mask", "Inpainted Image"]
-    
     for idx, (image, title) in enumerate(zip(images, titles)):
-        ax = axes[idx // 2, idx % 2]
-        ax.imshow(image, cmap="gray" if title != "Original Image" else None)
-        ax.set_title(title)
-        ax.axis("off")
-    
-    # adjust layout and show plot
-    plt.tight_layout()
-    plt.show()
-
-    # save the processed image
-    saveImageFile(img_out, os.path.join(save_dir, f"processed_{file_name}"))
+        # save the processed image into its folder
+        saveImageFile(image, os.path.join(image_save_dir, f"{title.replace(' ', '_').lower()}.png"))
