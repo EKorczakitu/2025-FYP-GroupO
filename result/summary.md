@@ -10,15 +10,20 @@ At a first glance at the data set we notice that there are many different proble
 -Foreign spots on the picture(ex 2002)<br>
 <br>
 ### Results of hair removal code<br>
-We found that our code were able to remove hair really well, but there is cases where more than the hair is removed.<br> 
-On the pictures below, we are looking at two senarios where our code removed too much information, leaving the picture with less a than ideal amount of detail.<br>
+Our code was able to successfully remove hair from most pictures, though the way the code works lets it remove more than just hair strands.<br>
+On the pictures below, we are looking at two scenarios where our code removed information leaving the picture with less than an ideal amount of detail.<br>
+The original being on the left and the inpainted being on the right. Putting them side to side we can see that there are two scenarios where our code has difficulty. <br>
+Firstly, when a picture has too much hair on it, the removal of the hair without any knowledge of what was behind all of the hair, leaves little detail.<br>
+The other set of pictures has the opposite problem, when there is no hair to remove, the code removes color differences in the mole.<br>
+This could potentially be important information in determining cancer.<br>
 
-![pic 5 not good](./processed_img_1846.png)<br>
-![pic 6 not good](./processed_img_1848.png)<br>
+![pic 5 not good OG](./img_1846/original_image.png) ![pic 5 not good inpainted](./img_1846/inpainted_image.png)<br>
+![pic 6 not good OG](./img_1841/original_image.png) ![pic 6 not good OG](./img_1841/inpainted_image.png)<br>
 Below here are some examples of great work done by our code, leaving a good amount of detail.<br>
+We see a pattern of high contrast hair versus skin makes it easier to remove the hairs, and darker, more dense moles on light colored skin is also less subsebtible to become overly corrected by the code.
 
-![pic 7 good](./processed_img_1839.png)<br>
-![pic 8 good](./processed_img_1838.png)<br>
+![pic 7 good OG](./img_1859/original_image.png) ![pic 7 good OG](./img_1859/inpainted_image.png)<br>
+![pic 7 good OG](./img_1869/original_image.png) ![pic 7 good OG](./img_1869/inpainted_image.png)<br>
 
 
 ### Improvement Ideas
