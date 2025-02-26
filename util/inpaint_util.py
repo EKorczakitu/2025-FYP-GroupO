@@ -9,7 +9,7 @@ def removeHair(img_org, img_gray, kernel_size=25, threshold=10, radius=4):
         img_gray (ndarray): The grayscale version of the original image.
         kernel_size (int): The size of the kernel used for the morphological operation (default is 25)
         threshold (int): The threshold value used for binarizing the hair contours (default is 10)
-        radius (int): The radius used for inpainting the image (default is 3)
+        radius (int): The radius used for inpainting the image (default is 4)
     
     Returns:
         tuple: A tuple containing:

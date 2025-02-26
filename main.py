@@ -2,9 +2,11 @@ from util import os, cv2, plt, pd
 from util.img_util import readImageFile, saveImageFile, ImageDataLoader
 from util.inpaint_util import removeHair
 
+# change the following paths according to your setup
 data_dir = './data'
 save_dir = './result'
 csv_path = './data-student.csv'
+
 group_id = 'O'
 
 # read CSV file to get the image data
@@ -27,6 +29,6 @@ for file_name, img_rgb, img_gray in ImageDataLoader(image_paths=image_paths, dir
     images = [img_rgb, img_gray, blackhat, thresh, img_out]
     titles = ["Original Image", "Grayscale Image", "BlackHat Image", "Thresholded Mask", "Inpainted Image"]
 
-    for idx, (image, title) in enumerate(zip(images, titles)):
+    for (image, title) in zip(images, titles):
         # save the processed image into its folder
         saveImageFile(image, os.path.join(image_save_dir, f"{title.replace(' ', '_').lower()}.png"))
