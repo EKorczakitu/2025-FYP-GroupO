@@ -9,6 +9,22 @@ At a first glance at the data set we notice that there are many different proble
 -Pen marks(circling the leision, ex 1847 &2001)<br>
 -Foreign spots on the picture(ex 2002)<br>
 <br>
+### Code for Hair Removal<br>
+Our code in `main.py` first reads the CSV file and filters the images that belong to our group. Once selected, `ImageDataLoader` loads them and extracts both an RGB and grayscale version of each image. 
+
+Using a `for` loop, we iterate through the images and apply hair removal using the `removeHair()` function. This function returns:
+
+1. **Blackhat Image** : The result of the blackhat morphological operation, highlighting dark objects against the background.
+2. **Thresholded Mask** : A binary mask used for inpainting. White areas indicate non-black regions before thresholding.
+3. **Inpainted Image** : The final image with hair removed using inpainting.
+
+For better visualization, we plot these four images in a single figure with labeled titles:  
+**Original Image, BlackHat Image, Thresholded Mask, Inpainted Image**.  
+
+Finally, we save the processed images to the `results/` folder. Below is an example of the hair removal process:<br>
+![Example of the stages of hair removal plot](./hair_removal_example.png)<br>
+
+<br>
 ### Results of hair removal code<br>
 Our code was able to successfully remove hair from most pictures, though the way the code works lets it remove more than just hair strands.<br>
 On the pictures below, we are looking at two scenarios where our code removed information leaving the picture with less than an ideal amount of detail.<br>
