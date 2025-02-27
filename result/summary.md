@@ -66,7 +66,7 @@ We see a pattern of high contrast hair versus skin makes it easier to remove the
 Although we did not implement the suggested improvements, we can infer how the final images might have looked had we refined our approach. 
 The current method effectively removes hair but sometimes loses crucial details. If the adaptive methods were in place, we would expect:
 
-   -**Better Preservation of Lesion Details**: The edge detection approach would have helped retain mole boundaries, making the images more useful for medical analysis.
-   -**More Accurate Hair Removal**: The dynamic kernel adjustment would have prevented over-removal in less hairy regions and enhanced results in densely covered images.
-   -**Cleaner, More Natural Inpainting**: By refining the inpainting process with an adaptive brush radius, the final images would likely have fewer artifacts and a more realistic appearance.<br>
+   - **Better Preservation of Lesion Details**: The edge detection approach would have helped retain mole boundaries, making the images more useful for medical analysis. <br>
+   - **More Accurate Hair Removal**: The dynamic kernel adjustment would have prevented over-removal in less hairy regions and enhanced results in densely covered images. <br>
+   - **Cleaner, More Natural Inpainting**: By refining the inpainting process with an adaptive brush radius, the final images would likely have fewer artifacts and a more realistic appearance.<br>
 While the current output is already functional, implementing these improvements could have led to more reliable and higher-quality images for further analysis.
