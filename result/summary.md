@@ -9,6 +9,7 @@ At a first glance at the data set we notice that there are many different proble
 -Pen marks(circling the leision, ex 1847 &2001)<br>
 -Foreign spots on the picture(ex 2002)<br>
 <br>
+
 ### Code for Hair Removal<br>
 Our code in `main.py` first reads the CSV file and filters the images that belong to our group. Once selected, `ImageDataLoader` loads them and extracts both an RGB and grayscale version of each image. 
 
@@ -25,6 +26,7 @@ Finally, we save the processed images to the `results/` folder. Below is an exam
 ![Example of the stages of hair removal plot](./hair_removal_example.png)<br>
 
 <br>
+
 ### Results of hair removal code<br>
 Our code was able to successfully remove hair from most pictures, though the way the code works lets it remove more than just hair strands.<br>
 On the pictures below, we are looking at two scenarios where our code removed information leaving the picture with less than an ideal amount of detail.<br>
@@ -58,3 +60,13 @@ We see a pattern of high contrast hair versus skin makes it easier to remove the
 #### 4. Post-Processing to Refine Results
    - **Problem**: After hair removal, the image might have some residual artifacts or remain somewhat blurry due to the inpainting process.
    - **Solution idea**: Apply a post-processing step to refine the results. This could involve sharpening the image or applying filters to restore some lost details after inpainting.
+
+
+### Final Outcome in Theory
+Although we did not implement the suggested improvements, we can infer how the final images might have looked had we refined our approach. 
+The current method effectively removes hair but sometimes loses crucial details. If the adaptive methods were in place, we would expect:
+
+   -**Better Preservation of Lesion Details**: The edge detection approach would have helped retain mole boundaries, making the images more useful for medical analysis.
+   -**More Accurate Hair Removal**: The dynamic kernel adjustment would have prevented over-removal in less hairy regions and enhanced results in densely covered images.
+   -**Cleaner, More Natural Inpainting**: By refining the inpainting process with an adaptive brush radius, the final images would likely have fewer artifacts and a more realistic appearance.<br>
+While the current output is already functional, implementing these improvements could have led to more reliable and higher-quality images for further analysis.
