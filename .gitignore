@@ -171,5 +171,7 @@ cython_debug/
 .pypirc
 
 # 'data' folder to avoid pushing pictures onto github
-/data/
+data/*
+!data/example.jpg
+
 gitlog.txt
